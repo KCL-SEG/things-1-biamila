@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+
 class Thing(models.Model):
     """name: a short string that identifies a thing.
         description: a slightly longer string that describes a thing.
@@ -10,7 +11,9 @@ class Thing(models.Model):
         quantity need not be unique, and must be an integer value between 0 and 100 (inclusive). 
             quantity may be 0 and it may be 100, but not less than 0 and not more than 100
     """
+
     name = models.CharField(
+        null=False,
         unique=True,
         blank=False,
         max_length=30
